@@ -6,7 +6,7 @@
 <title>Teman Rindu - Daftar Match</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
 
 body{
@@ -124,15 +124,21 @@ padding:20px;
 <body>
 
 <div class="header">
-    <div class="container">
-        <h1 class="logo-title">❤️ Teman Rindu</h1>
+    <div class="container d-flex justify-content-center align-items-center">
+
+        <h1 class="logo-title mb-0">
+            <i class="bi bi-heart-fill text-danger me-2"></i>
+            Teman Rindu
+        </h1>
+
     </div>
 </div>
 
 <div class="container mt-5">
 
 <h2 class="text-center mb-5">
-💕 Match Saya
+    <i class="bi bi-hearts text-danger me-2"></i>
+    Match Saya
 </h2>
 
 <div class="row text-center justify-content-center">
@@ -152,7 +158,7 @@ class="avatar-foto">
 @else
 
 <div class="avatar">
-👤
+    <i class="bi bi-person-fill"></i>
 </div>
 
 @endif
@@ -166,41 +172,41 @@ class="avatar-foto">
 
 
 <div class="info-item">
-    🎂 <strong>Umur:</strong>
+    <i class="bi bi-cake2-fill text-warning me-2"></i>
+    <strong>Umur:</strong>
     {{ $match->umur ?? '-' }} Tahun
 </div>
 
 <div class="info-item">
-    📍 <strong>Kota:</strong>
+    <i class="bi bi-geo-alt-fill text-danger me-2"></i>
+    <strong>Kota:</strong>
     {{ $match->kota ?? 'Belum diisi' }}
 </div>
 
 <div class="info-item">
-    📝 <strong>Bio:</strong>
+    <i class="bi bi-card-text text-primary me-2"></i>
+    <strong>Bio:</strong>
     {{ $match->bio ?? 'Belum ada bio' }}
 </div>
 
 
 
-<a href="/chat/{{ $match->id }}"
-class="btn btn-chat w-100">
-
-💬 Chat
-
+<a href="/chat/{{ $match->id }}" class="btn btn-chat w-100">
+    <i class="bi bi-chat-dots-fill me-2"></i>
+    Chat
 </a>
 
-<a href="/kirim-koin/{{ $match->id }}"
-class="btn btn-warning w-100 mt-2">
-
-🎁 Kirim Koin
-
+<a href="/kirim-koin/{{ $match->id }}" class="btn btn-warning w-100 mt-2">
+    <i class="bi bi-gift-fill me-2"></i>
+    Kirim Koin
 </a>
 
 <a href="/hapus-match/{{ $match->id }}"
-class="btn btn-danger w-100 mt-2"
-onclick="return confirm('Hapus match ini?')">
+   class="btn btn-danger w-100 mt-2"
+   onclick="return confirm('Hapus match ini?')">
 
-🗑️ Hapus Match
+    <i class="bi bi-trash-fill me-2"></i>
+    Hapus Match
 
 </a>
 
@@ -220,11 +226,9 @@ onclick="return confirm('Hapus match ini?')">
 Mulai cari pasangan dan temukan teman baru di Teman Rindu.
 </p>
 
-<a href="/match"
-class="btn btn-primary">
-
-Cari Pasangan
-
+<a href="/match" class="btn btn-primary">
+    <i class="bi bi-search-heart me-2"></i>
+    Cari Pasangan
 </a>
 
 </div>
@@ -235,11 +239,9 @@ Cari Pasangan
 
 <div class="col-12">
 
-<a href="/dashboard"
-class="btn btn-secondary">
-
-← Kembali ke Dashboard
-
+<a href="/dashboard" class="btn btn-secondary">
+    <i class="bi bi-arrow-left me-2"></i>
+    Kembali ke Dashboard
 </a>
 
 </div>

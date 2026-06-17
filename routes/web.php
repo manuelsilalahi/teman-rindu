@@ -46,8 +46,10 @@ foreach($postingan as $post){
 
 }
 
-$jumlahNotif = DB::table('notifikasi')
+$jumlahNotif = 
+    DB::table('notifikasi')
     ->where('user_id', session('id'))
+    ->where('dibaca', 0)
     ->count();
 
 return view(
@@ -151,6 +153,14 @@ Route::get('/daftar-match', function () {
 
 Route::get('/notifikasi', function () {
 
+    // Tandai semua notifikasi sebagai sudah dibaca
+    DB::table('notifikasi')
+        ->where('user_id', session('id'))
+        ->update([
+            'dibaca' => 1
+        ]);
+
+    // Ambil daftar notifikasi
     $notifikasi = DB::table('notifikasi')
         ->where('user_id', session('id'))
         ->orderBy('id', 'desc')

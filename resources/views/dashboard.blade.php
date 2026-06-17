@@ -7,6 +7,7 @@
 <title>Teman Rindu</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="style.css">
 <style>
 
@@ -164,11 +165,6 @@ body{
     box-shadow:0 15px 35px rgba(255,79,154,.25);
 }
 
-.menu-icon{
-    font-size:55px;
-    margin-bottom:15px;
-}
-
 .menu-card:hover{
     transform:translateY(-5px);
     color:#ff4f9a;
@@ -176,8 +172,9 @@ body{
 }
 
 .menu-icon{
-    font-size:35px;
-    margin-bottom:10px;
+    font-size:48px;
+    margin-bottom:15px;
+    color:#ff4f9a;
 }
 
 /* HEADER */
@@ -292,13 +289,13 @@ Teman Rindu
 <a href="/notifikasi"
 class="btn btn-warning me-2 notif-btn">
 
-🔔 {{ $jumlahNotif }}
+<i class="bi bi-bell-fill"></i> {{ $jumlahNotif }}
 
 </a>
 
 <a href="/logout"
 class="btn btn-outline-danger logout-btn">
-🚪 Keluar
+<i class="bi bi-box-arrow-right"></i> Keluar
 </a>
 
 </div>
@@ -321,35 +318,45 @@ class="btn btn-outline-danger logout-btn">
 
 <div class="col-6 col-md-3 mb-3">
     <a href="/match" class="menu-card">
-        <div class="menu-icon">❤️</div>
+        <div class="menu-icon">
+            <i class="bi bi-heart-fill"></i>
+        </div>
         <div>Match</div>
     </a>
 </div>
 
 <div class="col-6 col-md-3 mb-3">
     <a href="/pesan" class="menu-card">
-        <div class="menu-icon">💬</div>
+        <div class="menu-icon">
+            <i class="bi bi-chat-dots-fill"></i>
+        </div>
         <div>Chat</div>
     </a>
 </div>
 
 <div class="col-6 col-md-3 mb-3">
     <a href="/daftar-match" class="menu-card">
-        <div class="menu-icon">👥</div>
+        <div class="menu-icon">
+            <i class="bi bi-people-fill"></i>
+        </div>
         <div>Match Saya</div>
     </a>
 </div>
 
 <div class="col-6 col-md-3 mb-3">
     <a href="/profil" class="menu-card">
-        <div class="menu-icon">👤</div>
+        <div class="menu-icon">
+            <i class="bi bi-person-circle"></i>
+        </div>
         <div>Profil</div>
     </a>
 </div>
 
 <div class="col-6 col-md-3 mb-3">
     <a href="/dompet" class="menu-card">
-        <div class="menu-icon">💰</div>
+        <div class="menu-icon">
+            <i class="bi bi-wallet2"></i>
+        </div>
         <div>Dompet</div>
     </a>
 </div>
@@ -363,11 +370,13 @@ class="btn btn-outline-danger logout-btn">
 <div class="hero">
 
 <h1>
-👋 Halo, {{ session('nama') }}
+<i class="bi bi-hand-wave-fill me-2"></i>
+Halo, {{ session('nama') }}
 </h1>
 
 <p class="hero-subtitle">
-Temukan teman baru, pasangan baru, dan cerita baru di Teman Rindu ❤️
+Temukan teman baru, pasangan baru, dan cerita baru di Teman Rindu
+<i class="bi bi-heart-fill"></i>
 </p>
 
 </div>
@@ -377,7 +386,8 @@ Temukan teman baru, pasangan baru, dan cerita baru di Teman Rindu ❤️
 <div class="card-body">
 
 <h4 class="mb-3">
-📝 Buat Postingan
+<i class="bi bi-pencil-square me-2"></i>
+Buat Postingan
 </h4>
 
 <form 
@@ -407,7 +417,8 @@ class="form-control">
 type="submit"
 class="btn btn-pink">
 
-➕ Posting
+<i class="bi bi-plus-circle-fill me-1"></i>
+Posting
 
 </button>
 
@@ -420,7 +431,8 @@ class="btn btn-pink">
 <div class="mt-4">
 
 <h3 class="mb-3">
-📰 Postingan Terbaru
+<i class="bi bi-newspaper me-2"></i>
+Postingan Terbaru
 </h3>
 
 @foreach($postingan as $post)
@@ -491,7 +503,8 @@ style="width:100%;max-height:500px;object-fit:cover;">
 <a href="/like/{{ $post->id }}"
 class="btn btn-light aksi-btn">
 
-❤️ {{ $post->jumlah_like }} Like
+<i class="bi bi-heart-fill text-danger"></i>
+{{ $post->jumlah_like }} Like
 
 </a>
 
@@ -499,7 +512,8 @@ class="btn btn-light aksi-btn">
 class="btn btn-light aksi-btn"
 onclick="toggleKomentar({{ $post->id }})">
 
-💬 Komentar ({{ count($post->komentar) }})
+<i class="bi bi-chat-dots-fill"></i>
+Komentar ({{ count($post->komentar) }})
 
 </button>
 
@@ -509,7 +523,8 @@ onclick="toggleKomentar({{ $post->id }})">
 class="btn btn-light aksi-btn text-danger"
 onclick="return confirm('Yakin ingin menghapus postingan ini?')">
 
-🗑 Hapus
+<i class="bi bi-trash-fill"></i>
+Hapus
 
 </a>
 
@@ -535,7 +550,7 @@ onclick="return confirm('Yakin ingin menghapus postingan ini?')">
 href="/hapus-komentar/{{ $komen->id }}"
 class="text-danger text-decoration-none">
 
-🗑
+<i class="bi bi-trash-fill"></i>
 
 </a>
 
@@ -585,7 +600,8 @@ Kirim
 </div>
 
 <small class="text-muted d-block mt-2">
-🕒 {{ \Carbon\Carbon::parse($post->tanggal)->diffForHumans() }}
+<i class="bi bi-clock-history"></i>
+{{ \Carbon\Carbon::parse($post->tanggal)->diffForHumans() }}
 </small>
 
 </div>

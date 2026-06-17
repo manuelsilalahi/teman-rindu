@@ -5,7 +5,7 @@
 <title>Teman Rindu - Cari Pasangan</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
 
 body{
@@ -102,7 +102,8 @@ body{
 <div class="container mt-5">
 
 <h2 class="text-center mb-5">
-Temukan Pasangan Baru
+    <i class="bi bi-search-heart-fill text-danger me-2"></i>
+    Temukan Pasangan Baru
 </h2>
 
 <div class="row">
@@ -126,7 +127,7 @@ class="avatar-foto">
 @else
 
 <div class="avatar">
-👤
+    <i class="bi bi-person-fill"></i>
 </div>
 
 @endif
@@ -142,15 +143,18 @@ class="avatar-foto">
 <div class="info-box">
 
     <div class="info-item">
-        🎂 <strong>Umur:</strong> {{ $user->umur ?? '-' }} Tahun
+<i class="bi bi-cake2-fill text-warning"></i>
+<strong>Umur:</strong> {{ $user->umur ?? '-' }} Tahun
     </div>
 
     <div class="info-item">
-        📍 <strong>Kota:</strong> {{ $user->kota ?? 'Belum diisi' }}
+<i class="bi bi-geo-alt-fill text-danger"></i>
+<strong>Kota:</strong> {{ $user->kota ?? 'Belum diisi' }}
     </div>
 
     <div class="info-item">
-        📝 <strong>Bio:</strong> {{ $user->bio ?? 'Belum ada bio' }}
+<i class="bi bi-card-text text-primary"></i>
+<strong>Bio:</strong> {{ $user->bio ?? 'Belum ada bio' }}
     </div>
 
 </div>
@@ -158,7 +162,8 @@ class="avatar-foto">
 <a href="/match/{{ $user->id }}"
 class="btn btn-match w-100">
 
-💘 Match
+    <i class="bi bi-heart-fill me-2"></i>
+    Match
 
 </a>
 
@@ -175,7 +180,8 @@ class="btn btn-match w-100">
 <div class="text-center mt-4">
 
 <a href="/dashboard" class="btn btn-secondary">
-← Kembali ke Dashboard
+    <i class="bi bi-arrow-left me-2"></i>
+    Kembali ke Dashboard
 </a>
 
 </div>

@@ -5,7 +5,7 @@
 <title>Notifikasi</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
 
 body{
@@ -96,7 +96,7 @@ Notifikasi
 <div class="d-flex align-items-center">
 
 <div class="notif-icon">
-❤️
+    <i class="bi bi-heart-fill text-danger"></i>
 </div>
 
 <div class="ms-3">
@@ -125,7 +125,10 @@ Notifikasi
 
 <div class="card-body text-center p-5">
 
-<h4>🔔 Belum Ada Notifikasi</h4>
+<h4>
+    <i class="bi bi-bell-slash-fill text-secondary me-2"></i>
+    Belum Ada Notifikasi
+</h4>
 
 @foreach($notifikasi as $notif)
 
@@ -171,9 +174,10 @@ Notifikasi
 
 <div class="text-center">
 
-<a href="/dashboard"
-class="btn btn-secondary mt-4">
-← Kembali ke Dashboard
+<a href="/dashboard" class="btn btn-secondary mt-4">
+    <i class="bi bi-arrow-left me-2"></i>
+    Kembali ke Dashboard
+</a>
 
 </a>
 
