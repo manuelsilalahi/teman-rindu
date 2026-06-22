@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Http;
-Route::get('/', [AuthController::class, 'login']);
+Route::view('/', 'welcome');
 
 Route::get('/login', [AuthController::class, 'login']);
 

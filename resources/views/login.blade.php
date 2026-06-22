@@ -6,7 +6,7 @@
 <title>Teman Rindu - Login</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
 
 body{
@@ -122,9 +122,9 @@ body{
 
     <h1 class="judul">Teman Rindu</h1>
 
-    <p class="subjudul">
-        Temukan teman baru dan pasangan yang berarti ❤️
-    </p>
+<p class="text-center text-muted mb-4">
+    Platform sosial untuk mencari teman baru, menemukan pasangan, berbagi postingan, dan membangun hubungan yang lebih dekat.
+</p>
 
 <form action="/login" method="POST">
     @csrf

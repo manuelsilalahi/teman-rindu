@@ -17,9 +17,14 @@ body{
 }
 
 .aksi-post{
-    display:flex;
-    gap:10px;
-    margin-top:15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin-top: 15px;
 }
 
 .aksi-btn{
@@ -258,6 +263,106 @@ body{
     color:#222;
     font-size:28px;
 }
+
+/* ===========================
+   RESPONSIVE DASHBOARD
+=========================== */
+@media (max-width: 768px) {
+
+    .brand{
+        font-size: 26px !important;
+    }
+
+    .hero{
+        padding: 25px !important;
+        text-align: center;
+    }
+
+    .hero h1{
+        font-size: 32px !important;
+    }
+
+    .hero-subtitle{
+        font-size: 16px !important;
+    }
+
+    .menu-card{
+        min-height: 120px !important;
+        padding: 20px 10px !important;
+    }
+
+    .menu-icon{
+        font-size: 32px !important;
+    }
+
+    .nama-user{
+        font-size: 20px !important;
+    }
+
+.aksi-post
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    gap: 20px;
+}
+
+.aksi-btn{
+    width: auto !important;
+}
+
+    .post-card img{
+        max-height: 250px !important;
+        object-fit: cover;
+    }
+
+    .navbar .btn{
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .logo{
+    width: 45px !important;
+    height: 45px !important;
+}
+
+.brand{
+    font-size: 20px !important;
+}
+
+.notif-btn,
+.logout-btn{
+    padding: 6px 10px !important;
+    font-size: 14px !important;
+}
+
+.menu-card{
+    min-height: 100px !important;
+    padding: 15px 10px !important;
+}
+
+.menu-icon{
+    font-size: 30px !important;
+}
+
+.nama-user{
+    font-size: 24px !important;
+}
+
+.post-card{
+    margin-bottom: 15px !important;
+}
+
+.post-card img{
+    max-height: 320px !important;
+    object-fit: cover;
+}
+
+
+
+}
+
+
 
 </style>
 </head>
@@ -498,37 +603,28 @@ style="width:100%;max-height:500px;object-fit:cover;">
 
 <div class="mt-2">
 
-<div class="aksi-post">
+<div class="aksi-post justify-content-around align-items-center py-2">
 
-<a href="/like/{{ $post->id }}"
-class="btn btn-light aksi-btn">
+    <a href="/like/{{ $post->id }}"
+       class="text-decoration-none text-dark d-flex align-items-center gap-1">
+        <i class="bi bi-heart-fill text-danger"></i>
+        <span>{{ $post->jumlah_like }}</span>
+    </a>
 
-<i class="bi bi-heart-fill text-danger"></i>
-{{ $post->jumlah_like }} Like
+    <button type="button"
+            class="btn p-0 border-0 bg-transparent d-flex align-items-center gap-1"
+            onclick="toggleKomentar({{ $post->id }})">
+        <i class="bi bi-chat-dots-fill text-dark"></i>
+        <span>{{ count($post->komentar) }}</span>
+    </button>
 
-</a>
-
-<button
-class="btn btn-light aksi-btn"
-onclick="toggleKomentar({{ $post->id }})">
-
-<i class="bi bi-chat-dots-fill"></i>
-Komentar ({{ count($post->komentar) }})
-
-</button>
-
-@if($post->user_id == session('id'))
-
-<a href="/hapus-postingan/{{ $post->id }}"
-class="btn btn-light aksi-btn text-danger"
-onclick="return confirm('Yakin ingin menghapus postingan ini?')">
-
-<i class="bi bi-trash-fill"></i>
-Hapus
-
-</a>
-
-@endif
+    @if($post->user_id == session('id'))
+    <a href="/hapus-postingan/{{ $post->id }}"
+       class="text-decoration-none text-danger d-flex align-items-center gap-1"
+       onclick="return confirm('Yakin ingin menghapus postingan ini?')">
+        <i class="bi bi-trash-fill"></i>
+    </a>
+    @endif
 
 </div>
 
